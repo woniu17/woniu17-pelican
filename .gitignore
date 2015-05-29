@@ -1,3 +1,7 @@
 cache
 output
 *.pyc
+*.pid
+
+pelican-plugins
+pelican-themes
