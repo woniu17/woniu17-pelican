@@ -32,7 +32,15 @@ SOCIAL = (
           ('github', 'https://github.com/woniu17'),
          )
 
-THEME = 'pelican-themes/simple-bootstrap'
+THEME = 'pelican-themes/built-texts'
+
+#plugin
+PLUGIN_PATHS = ['pelican-plugins']
+PLUGINS = ['latex', 'gravatar', 'sitemap']
+
+#markdown
+MD_EXTENSIONS = ['codehilite(css_class=highlight)', 'extra', 'tables' ]
+
 DEFAULT_PAGINATION = 10
 
 # Uncomment following line if you want document-relative URLs when developing
