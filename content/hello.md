@@ -1,6 +1,6 @@
 Title: Hello, world!
 Date: 2015-05-29 19:54
-Category: pelican
+Category: Pelican
 Tags: pelican, markdown
 Slug: hello
 Author: qingluck

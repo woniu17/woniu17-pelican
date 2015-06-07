@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = u'qingluck'
+AUTHOR = u'woniu17'
 AUTHOR_EMAIL = u'qinglucklin@foxmail.com'
-SITENAME = u'qingtech'
-SITEURL = 'http://woniu17.github.io'
+SITENAME = u'woniu17, 我牛气'
+#SITEURL = 'http://linqingxiang.com'
 DEFAULT_DATE_FORMATE = ('%Y-%m-%d')
 
 PATH = 'content'
@@ -24,7 +24,7 @@ AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS = (
-         ('LIN Qingxiang', 'http://www.linqingxiang.com/'),
+         ('LIN Qingxiang', 'http://linqingxiang.com/'),
         )
 
 # Social widget
