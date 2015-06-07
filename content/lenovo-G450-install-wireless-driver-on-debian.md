@@ -5,6 +5,9 @@ Tags: debian, linux
 Author: woniu17
 Summary: 在联想G450上安装无线驱动网卡(Debian7.8 32-bit)
 
+本文链接：[在联想G450上安装无线驱动网卡(Debian7.8 32-bit)]({filename}/lenovo-G450-install-wireless-driver-on-debian.md)
+
+
 ## 步骤概述：
 
 1. 下载驱动
@@ -18,7 +21,7 @@ Summary: 在联想G450上安装无线驱动网卡(Debian7.8 32-bit)
 
 ### 下载驱动
   在[http://www.broadcom.com/support/?gid=1](http://www.broadcom.com/support/?gid=1){:target="_blank"}
-  选择`Linuxi STA 32-bit driver`下载到`~/Download`文件夹
+  选择`Linuxi STA 32-bit driver`(如果是64位系统，选择相应版本)下载到`~/Download`文件夹
   进入`~/Download`文件夹，解压该文件`hybrid-v35-nodebug-pcoem-6_30_223_248.tar.gz`
 ```bash
   user@debian:~$ cd ~/Download
