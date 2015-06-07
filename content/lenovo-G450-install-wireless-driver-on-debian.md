@@ -1,5 +1,6 @@
 Title: 在联想G450上安装无线驱动网卡(Debian7.8)
 Date: 2015-06-06 22:16
+Category: Linux
 Tags: debian, linux
 Author: woniu17
 Summary: 在联想G450上安装无线驱动网卡(Debian7.8 32-bit)
