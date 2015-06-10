@@ -1,0 +1,6 @@
+[submodule "pelican-themes/niu-x2-sidebar"]
+	path = pelican-themes/niu-x2-sidebar
+	url = https://github.com/qingtech/niu-x2-sidebar.git
+[submodule "pelican-plugins"]
+	path = pelican-plugins
+	url = https://github.com/qingtech/pelican-plugins.git
