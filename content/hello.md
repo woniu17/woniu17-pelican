@@ -5,6 +5,7 @@ Tags: pelican, markdown
 Slug: hello
 Author: qingluck
 Summary: Hello pelican and markdown.
+Comment: off
 
 ## Hello pelican and markdown.
 
