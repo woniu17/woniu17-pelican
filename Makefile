@@ -8,8 +8,8 @@ OUTPUTDIR=$(BASEDIR)/output
 PUBLISHDIR=$(BASEDIR)/publish
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
-GITHUBPUBLISHCONF=$(BASEDIR)/githubpublishconf.py
 FAVICON=$(BASEDIR)/favicon.ico
+CNAME=$(BASEDIR)/CNAME
 
 FTP_HOST=localhost
 FTP_USER=anonymous
@@ -89,6 +89,7 @@ stopserver:
 publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
 	cp $(FAVICON) $(OUTPUTDIR)
+	cp $(CNAME) $(OUTPUTDIR)
 
 ssh_upload: publish
 	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
@@ -108,11 +109,9 @@ s3_upload: publish
 cf_upload: publish
 	cd $(OUTPUTDIR) && swift -v -A https://auth.api.rackspacecloud.com/v1.0 -U $(CLOUDFILES_USERNAME) -K $(CLOUDFILES_API_KEY) upload -c $(CLOUDFILES_CONTAINER) .
 
-github:
+github: publish
 	#ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
 	#git push origin $(GITHUB_PAGES_BRANCH)
-	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(GITHUBPUBLISHCONF) $(PELICANOPTS)
-	cp $(FAVICON) $(OUTPUTDIR)
 	cd $(PUBLISHDIR) && git checkout master;
 	rm -rf $(PUBLISHDIR)/*
 	cp -r $(OUTPUTDIR)/* $(PUBLISHDIR)/
