@@ -5,8 +5,11 @@ PELICANOPTS=
 BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content
 OUTPUTDIR=$(BASEDIR)/output
+PUBLISHDIR=$(BASEDIR)/publish
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
+GITHUBPUBLISHCONF=$(BASEDIR)/githubpublishconf.py
+FAVICON=$(BASEDIR)/favicon.ico
 
 FTP_HOST=localhost
 FTP_USER=anonymous
@@ -56,6 +59,7 @@ help:
 
 html:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE) $(PELICANOPTS)
+	cp $(FAVICON) $(OUTPUTDIR)
 
 clean:
 	[ ! -d $(OUTPUTDIR) ] || rm -rf $(OUTPUTDIR)
@@ -84,6 +88,7 @@ stopserver:
 
 publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
+	cp $(FAVICON) $(OUTPUTDIR)
 
 ssh_upload: publish
 	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)
@@ -103,8 +108,19 @@ s3_upload: publish
 cf_upload: publish
 	cd $(OUTPUTDIR) && swift -v -A https://auth.api.rackspacecloud.com/v1.0 -U $(CLOUDFILES_USERNAME) -K $(CLOUDFILES_API_KEY) upload -c $(CLOUDFILES_CONTAINER) .
 
-github: publish
-	ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
-	git push origin $(GITHUB_PAGES_BRANCH)
+github:
+	#ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
+	#git push origin $(GITHUB_PAGES_BRANCH)
+	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(GITHUBPUBLISHCONF) $(PELICANOPTS)
+	cp $(FAVICON) $(OUTPUTDIR)
+	cd $(PUBLISHDIR) && git checkout master;
+	rm -rf $(PUBLISHDIR)/*
+	cp -r $(OUTPUTDIR)/* $(PUBLISHDIR)/
+	cd $(PUBLISHDIR) && git add -A ; git commit -m "pelican update" ; git push origin master:master
 
-.PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github
+gitcafe: publish
+	cd $(PUBLISHDIR) && git checkout gitcafe;
+	rm -rf $(PUBLISHDIR)/*
+	cp -r $(OUTPUTDIR)/* $(PUBLISHDIR)/
+	cd $(PUBLISHDIR) && git add -A ; git commit -m "pelican update" ; git push gitcafe gitcafe:master
+.PHONY: html help clean regenerate serve devserver publish ssh_upload rsync_upload dropbox_upload ftp_upload s3_upload cf_upload github gitcafe
