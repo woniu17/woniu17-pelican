@@ -4,6 +4,6 @@
 [submodule "pelican-plugins"]
 	path = pelican-plugins
 	url = https://github.com/qingtech/pelican-plugins.git
-[submodule "output"]
-	path = output
+[submodule "publish"]
+	path = publish
 	url = https://woniu17@github.com/woniu17/woniu17.github.io.git
