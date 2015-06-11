@@ -40,6 +40,52 @@ THEME = 'pelican-themes/niu-x2-sidebar'
 NIUX2_DEBUG = False
 
 # niu-x2 theme config
+FILENAME_METADATA = '(?P<slug>.*)'
+GOOGLE_ANALYTICS = 'XXXXXX'
+# feed config
+FEED_DOMAIN = SITEURL
+FEED_ALL_RSS = 'feed.xml'
+FEED_MAX_ITEMS = 20
+FEED_ALL_ATOM = None
+CATEGORY_FEED_ATOM = None
+TRANSLATION_FEED_ATOM = None
+# use directory name as category if not set
+USE_FOLDER_AS_CATEGORY = True
+DELETE_OUTPUT_DIRECTORY = True
+DEFAULT_CATEGORY = 'uncategorized'
+DEFAULT_PAGINATION = 7
+
+READERS = {
+        'html': None,
+}
+
+STATIC_PATHS = [
+        'static',
+        'extra',
+]
+EXTRA_PATH_METADATA = {
+    'extra/CNAME': { 'path': 'CNAME' },
+    'extra/.nojekyll': { 'path': '.nojekyll' },
+    'extra/README': { 'path': 'README.md' },
+    'extra/favicon.ico': { 'path': 'favicon.ico' },
+    'extra/LICENSE.txt': { 'path': 'LICENSE.txt' },
+    'extra/robots.txt': { 'path': 'robots.txt' },
+    'extra/BingSiteAuth.xml': {'path': 'BingSiteAuth.xml' },
+}
+
+ARTICLE_URL = '{category}/{slug}.html'
+ARTICLE_SAVE_AS = ARTICLE_URL
+PAGE_URL = '{slug}.html'
+PAGE_SAVE_AS = PAGE_URL
+CATEGORY_URL = '{slug}/index.html'
+CATEGORY_SAVE_AS = CATEGORY_URL
+TAG_URL = 'tag/{slug}.html'
+TAG_SAVE_AS = TAG_URL
+TAGS_SAVE_AS = 'tag/index.html'
+# disable author pages
+AUTHOR_SAVE_AS = ''
+AUTHORS_SAVE_AS = ''
+
 JINJA_EXTENSIONS = ['jinja2.ext.ExprStmtExtension',]
 NIUX2_AUTHOR_TRANSL = '作者'
 NIUX2_404_TITLE_TRANSL = '404错误 页面未找到!'
@@ -90,14 +136,16 @@ NIUX2_CATEGORY_MAP = {
 }
 
 NIUX2_HEADER_SECTIONS = [
-    ('关于', 'about me', '/pages/about.html', 'icon-anchor'),
+    ('关于', 'about me', '/about.html', 'icon-anchor'),
+    ('待办', 'TODO', '/todo.html', 'icon-rocket'),
     #('使用协议', 'agreement', '/agreement.html', 'icon-exclamation-circle'),
     #('项目', 'my projects', '/my_projects.html', 'icon-rocket'),
-    #('标签', 'tags', '/tag/', 'icon-tag'),
+    ('标签', 'tags', '/tag/', 'icon-tag'),
 ]
 
 TEMPLATE_PAGES = {
-    "archives_updatedate.html": "archives_updatedate.html",
+    '404.html' : '404.html',
+    'archives_updatedate.html' : 'archives_updatedate.html',
 }
 NIUX2_HEADER_DROPDOWN_SECTIONS = OrderedDict()
 NIUX2_HEADER_DROPDOWN_SECTIONS[('存档', 'icon-archive')] = [
