@@ -7,3 +7,6 @@
 [submodule "publish"]
 	path = publish
 	url = https://woniu17@github.com/woniu17/woniu17.github.io.git
+[submodule "git-for-SAE"]
+	path = git-for-SAE
+	url = https://github.com/qingtech/git-for-SAE.git
