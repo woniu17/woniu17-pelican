@@ -13,7 +13,7 @@ Comment: off
 
 ------
 
-### *python* **学习**
+### *python*[^python] **学习**
 
 > The Zen of Python, by Tim Peters
 >
@@ -45,7 +45,7 @@ if __name__ == '__main__' :
     hello()
 ```
 
-### LaTeX公式
+### LaTeX[^latex]公式
 - 行内公式：$Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$
 - 块级公式：
 
@@ -94,3 +94,6 @@ Bob-->Alice: I am good thanks!
 - 预览文档 `Ctrl + Alt + Enter`
 - 文档管理    `Ctrl + O`
 - 系统菜单    `Ctrl + M` 
+
+[^python]:  是一种面向对象、解释型计算机程序设计语言，由Guido van Rossum于1989年底发明，第一个公开发行版发行于1991年，Python 源代码同样遵循 GPL(GNU General Public License)协议。[详情](http://baike.baidu.com/view/21087.htm){:target="_blank"}
+[^latex]: 是一种基于ΤΕΧ的排版系统，由美国计算机学家莱斯利·兰伯特（Leslie Lamport）在20世纪80年代初期开发。[详情](http://baike.baidu.com/view/769333.htm){:target="_blank"}

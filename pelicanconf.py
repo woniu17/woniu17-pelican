@@ -6,7 +6,7 @@ from collections import OrderedDict
 AUTHOR = u'woniu17'
 AUTHOR_EMAIL = u'qinglucklin@foxmail.com'
 SITENAME = u'woniu17, 我牛气'
-SITEURL = 'http:linqingxiang.com'
+SITEURL = 'http://linqingxiang.com'
 DEFAULT_DATE_FORMATE = ('%Y-%m-%d')
 DEFAULT_DATE = 'fs'  # use filesystem's mtime
 LOCALE = ('zh_CN.utf8',)
@@ -111,6 +111,10 @@ NIUX2_VIEW_SOURCE_TRANSL = '查看源文件'
 
 NIUX2_DUOSHUO_SHORTNAME = 'xxxxxx'
 #NIUX2_DUOSHUO_THREAD_KEY = 'slug'
+#autumn, borland, bw, colorful, default,
+#emacs, friendly, fruity, github, manni,
+#monokai, murphy, native, pastie, perldoc,
+#tango, trac, vim, vs, zenburn
 NIUX2_PYGMENTS_THEME = 'github'
 NIUX2_PAGINATOR_LENGTH = 11
 NIUX2_RECENT_UPDATE_NUM = 10
