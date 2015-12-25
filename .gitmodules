@@ -6,4 +6,4 @@
 	url = https://github.com/qingtech/pelican-plugins.git
 [submodule "publish"]
 	path = publish
-	url = https://woniu17@github.com/woniu17/woniu17.github.io.git
+	url = https://woniu17@github.com/woniu17.git.io.git
