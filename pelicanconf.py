@@ -3,9 +3,9 @@
 from __future__ import unicode_literals
 from collections import OrderedDict
 
-AUTHOR = u'woniu17'
+AUTHOR = u'linqx'
 AUTHOR_EMAIL = u'qinglucklin@foxmail.com'
-SITENAME = u'woniu17, 我牛气'
+SITENAME = u'静如处子，动若脱兔'
 SITEURL = 'http://linqingxiang.com'
 DEFAULT_DATE_FORMATE = ('%Y-%m-%d')
 DEFAULT_DATE = 'fs'  # use filesystem's mtime
