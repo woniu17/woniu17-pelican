@@ -110,11 +110,6 @@ s3_upload: publish
 cf_upload: publish
 	cd $(OUTPUTDIR) && swift -v -A https://auth.api.rackspacecloud.com/v1.0 -U $(CLOUDFILES_USERNAME) -K $(CLOUDFILES_API_KEY) upload -c $(CLOUDFILES_CONTAINER) .
 
-sae_upload: publish
-	rm -rf $(PUBLISHDIR)/*
-	cp -r $(OUTPUTDIR)/* $(PUBLISHDIR)/
-	cd $(PUBLISHDIR) && $(GITFORSAE)/sae-push.sh qingluck 2
-
 github: publish
 	#ghp-import -m "Generate Pelican site" -b $(GITHUB_PAGES_BRANCH) $(OUTPUTDIR)
 	#git push origin $(GITHUB_PAGES_BRANCH)
@@ -122,6 +117,11 @@ github: publish
 	rm -rf $(PUBLISHDIR)/*
 	cp -r $(OUTPUTDIR)/* $(PUBLISHDIR)/
 	cd $(PUBLISHDIR) && git add -A ; git commit -m "pelican update" ; git push origin master:master
+
+sae: publish
+	rm -rf $(PUBLISHDIR)/*
+	cp -r $(OUTPUTDIR)/* $(PUBLISHDIR)/
+	cd $(PUBLISHDIR) && $(GITFORSAE)/sae-push.sh qingluck 2
 
 gitcafe: publish
 	cd $(PUBLISHDIR) && git checkout gitcafe;
