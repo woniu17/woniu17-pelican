@@ -119,9 +119,10 @@ github: publish
 	cd $(PUBLISHDIR) && git add -A ; git commit -m "pelican update" ; git push origin master:master
 
 sae: publish
+	cd $(PUBLISHDIR) && git checkout master;
 	rm -rf $(PUBLISHDIR)/*
 	cp -r $(OUTPUTDIR)/* $(PUBLISHDIR)/
-	cd $(PUBLISHDIR) && $(GITFORSAE)/sae-push.sh qingluck 2
+	cd $(PUBLISHDIR) && git add -A ; git commit -m "pelican update" ; git push sae master:1
 
 gitcafe: publish
 	cd $(PUBLISHDIR) && git checkout gitcafe;
