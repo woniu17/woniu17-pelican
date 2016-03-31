@@ -62,7 +62,7 @@ $ wget -p --save-headers https://www.example.org
 $ vi www.example.org/index.html
 $ cd -
 ```
-### 编辑/tmp/quic-data/www.example.org/index.html
+### 编辑~/tmp/quic-data/www.example.org/index.html
 * 删除“Transfer-Encoding: chunked”这一行
 * 删除“Alternate-Protocol: ...”这一行
 * 添加一行“X-Original-Url: https://www.example.org/”（不包括双引号）
