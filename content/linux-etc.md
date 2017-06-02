@@ -1,0 +1,3 @@
+- [ ] ftp服务器搭建、被动模式、添加本地用户、被动模式端口限制
+- [ ] iptables启动不了 https://superuser.com/questions/808900/iptables-not-starting-on-centos-6
+- [ ] ftp被动模式响应报文 http://www.serv-u.com/respcode.asp?resp=227
