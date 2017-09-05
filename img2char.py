@@ -10,12 +10,12 @@ html_head = '''
 <style>
 div
 {
-width:400px;
+width:0px;
 height:0px;
 }
 div#image
 {
-margin:30px;
+margin:0px;
 transform:scale(0.2,0.2);
 -ms-transform:scale(0.2,0.2); /* IE 9 */
 -moz-transform:scale(0.2,0.2); /* Firefox */
@@ -23,6 +23,22 @@ transform:scale(0.2,0.2);
 -o-transform:scale(0.2,0.2); /* Opera */
 }
 </style>
+<script type="text/javascript">
+var i = 20;
+function hello() {
+	i = i - 0.1;
+	var s = "scale(" + i + ")";
+	document.getElementById("image").style.Transform=s;
+	document.getElementById("image").style.WebkitTransform=s;
+	document.getElementById("image").style.msTransform=s;
+	document.getElementById("image").style.MozTransform=s;
+	document.getElementById("image").style.oTransform=s;
+	if (i > 0.2) {
+		window.setTimeout(hello, 5);
+	}
+}
+window.onload=hello
+</script>
 </head>
 <body>
 <div id="image">
