@@ -2,7 +2,7 @@
 
 char_string = 'abcdefghipqrstuvwxyz'
 char_string = '"$@B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/\|()1{}[]?-_+~<>i!;:,\"^`\'.\"'
-char_string = '2emo'
+char_string = 'me2o'
 html_head = '''
 <!DOCTYPE html>
 <html>
@@ -16,11 +16,11 @@ height:0px;
 div#image
 {
 margin:0px;
-transform:scale(0.2,0.2);
--ms-transform:scale(0.2,0.2); /* IE 9 */
--moz-transform:scale(0.2,0.2); /* Firefox */
--webkit-transform:scale(0.2,0.2); /* Safari and Chrome */
--o-transform:scale(0.2,0.2); /* Opera */
+transform:scale(20);
+-ms-transform:scale(20); /* IE 9 */
+-moz-transform:scale(20); /* Firefox */
+-webkit-transform:scale(20); /* Safari and Chrome */
+-o-transform:scale(20); /* Opera */
 }
 </style>
 <script type="text/javascript">
@@ -34,7 +34,7 @@ function hello() {
 	document.getElementById("image").style.MozTransform=s;
 	document.getElementById("image").style.oTransform=s;
 	if (i > 0.2) {
-		window.setTimeout(hello, 5);
+		window.setTimeout(hello, 200);
 	}
 }
 window.onload=hello
@@ -43,6 +43,10 @@ window.onload=hello
 <body>
 <div id="image">
 <code>
+2
+emo
+happy
+teacher's&nbsp;day!
 '''
 html_tail = '''
 </code>
@@ -72,7 +76,7 @@ def preprocess(img_path, delta=100):
 
     # 伸缩倍数scale
     scale = 4
-    width, height = int(width / scale * 3.0), int(height / scale)
+    width, height = int(width / scale * 2.5), int(height / scale)
     img = img.resize((width, height))
     return img
 
